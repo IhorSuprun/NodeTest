@@ -1,5 +1,13 @@
-//const cron = require('node-cron');
-
-//cron.schedule('*/2 * * * * *', () => {
-//    console.log(Math.floor(Date.now() / 1000));
-//});
+/*new Vue({
+    el: '#app',
+    data() {
+        return {
+            info: null
+        };
+    },
+    mounted() {
+        axios
+            .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+            .then(response => (this.info = response));
+    }
+});*/

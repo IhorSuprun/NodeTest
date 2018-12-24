@@ -3,9 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="dist/main.js"></script>
+    <!--<script src="dist/main.js"></script>-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
 </head>
 <body>
-<h1>Weather</h1>
+<h1>Current temperature in Dnipro</h1>
+<div id="content">
+    <p>current: {{temp.temp}}</p>
+    <p>min: {{temp.temp_min}}</p>
+    <p>max:{{temp.temp_max}}</p>
+</div>
 </body>
+<script>
+    new Vue({
+        el: '#content',
+        data() {
+            return {
+                temp: null
+            };
+        },
+        mounted() {
+            axios
+                .get('https://api.openweathermap.org/data/2.5/weather?q=Dnipro,ua&units=metric&APPID=38fc1678aa4a045c04c1393432877266')
+                .then(response => (this.temp = response.data.main));
+        }
+    });
+</script>
 </html>
